@@ -17,6 +17,8 @@
   },
   "homepage": "https://github.com/ryanmunger/org#readme",
   "dependencies": {
-    "express": "^4.14.0"
+    "ejs": "^2.5.5",
+    "express": "^4.14.0",
+    "express-ejs-layouts": "^2.2.0"
   }
 }
