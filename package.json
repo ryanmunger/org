@@ -1,0 +1,22 @@
+{
+  "name": "org",
+  "version": "0.0.1",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "start": "node app.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ryanmunger/org.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ryanmunger/org/issues"
+  },
+  "homepage": "https://github.com/ryanmunger/org#readme",
+  "dependencies": {
+    "express": "^4.14.0"
+  }
+}
