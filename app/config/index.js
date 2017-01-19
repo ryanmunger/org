@@ -8,7 +8,7 @@ if (process.env.NODE_ENV === 'production') {
 } else if (process.env.NODE_ENV === 'staging') {
   module.exports = {
     "dbConnectionString": process.env.DATABASE_URL,
-    "sessionSecret": process.env.staging.SESSION_SECRET
+    "sessionSecret": process.env.SESSION_SECRET
   }
 } else {
   module.exports = {
