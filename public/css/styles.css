@@ -1,1 +1,40 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
 
+body {
+  font-size: 100%;
+  font-family: sans-serif;
+  padding: 40px;
+}
+
+h1 {
+  margin: 20px 0;
+}
+
+.container {
+  max-width: 40em;
+  margin: 0 auto;
+}
+
+input {
+  width: 100%;
+  padding: 10px 5px;
+  margin-bottom: 10px;
+  font-size: 1.2rem;
+}
+
+button {
+  padding: 10px;
+  text-transform: uppercase;
+  width: 100%;
+  font-size: 1.2rem;
+}
+
+a {
+  display: inline-block;
+  margin-top: 20px;
+  font-size: 1.4rem;
+}
