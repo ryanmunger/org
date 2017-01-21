@@ -1,0 +1,11 @@
+<% if (orgs.length <= 0) {%>
+  <h1>You have no orgs</h1>
+  <a href="/add-organization">Add Some</a>
+<% } else { %>
+  <h1>Your Organizations</h1>
+  <ul>
+    <% for(var i=0; i < orgs.length; i++) {%>
+       <li><%= orgs[i].name %></li>
+    <% } %>
+  </ul>
+<% } %>

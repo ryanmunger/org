@@ -1,8 +1,8 @@
-const User = require('../models');
+const Models = require('../models');
 const bcrypt = require('bcrypt');
 
 const findById = (id, cb) => {
-  User.findById(id).then(user => {
+  Models.User.findById(id).then(user => {
     cb(null, user);
   }).catch(err => {
     cb(new Error(`User ${id} does not exist`));
@@ -10,7 +10,7 @@ const findById = (id, cb) => {
 }
 
 const findByUsername = (username, cb) => {
-  User.findOne({
+  Models.User.findOne({
     where: {
       username
     }
