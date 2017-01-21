@@ -19,7 +19,10 @@ app.use(require('express-session')({
 app.use(passport.initialize());
 app.use(passport.session());
 
-const routes = require('./routes');
+const authRoutes = require('./routes/auth');
+const dashboardRoutes = require('./routes/dashboard');
+const organizationsRoutes = require('./routes/organizations');
+
 const port = process.env.PORT || 3000;
 
 app.use(morgan('dev'));
@@ -29,7 +32,9 @@ app.use(bodyParser());
 app.set('view engine', 'ejs');
 app.use(expressLayouts);
 
-app.use('/', routes);
+app.use('/', authRoutes);
+app.use('/dashboard', dashboardRoutes);
+app.use('/organizations', organizationsRoutes);
 
 app.use(express.static(`${__dirname}/public`));
 

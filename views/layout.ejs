@@ -9,6 +9,9 @@
   </head>
   <body>
     <div class="container">
+      <% if (typeof user != 'undefined') { %>
+        <a href="/dashboard">Home</a>
+      <% } %>
       <%- body %>
     </div>
   </body>
