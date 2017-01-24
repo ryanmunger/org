@@ -9,7 +9,6 @@ if (process.env.NODE_ENV === 'production') {
     }
   }
 } else if (process.env.NODE_ENV === 'staging') {
-  console.log(redisURI, redisPassword);
   module.exports = {
     "dbConnectionString": process.env.DATABASE_URL,
     "sessionSecret": process.env.SESSION_SECRET,
