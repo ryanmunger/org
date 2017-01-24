@@ -1,9 +1,7 @@
 // TODO: @swlkr this would probably be more awesome with Object.assign();
 
-if (process.env.REDIS_URL) {
-  const redisURI = require('url').parse(process.env.REDIS_URL);
-  const redisPassword = redisURI.auth.split(':')[1];
-}
+const redisURI = require('url').parse(process.env.REDIS_URL);
+const redisPassword = redisURI.auth.split(':')[1];
 
 if (process.env.NODE_ENV === 'production') {
   module.exports = {
