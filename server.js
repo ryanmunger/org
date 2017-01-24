@@ -9,19 +9,28 @@ const passport = require('passport');
 const session = require('express-session');
 const auth = require('./app/auth')();
 const config = require('./app/config');
+const redis = require('redis');
+const client = redis.createClient();
+const RedisStore = require('connect-redis')(session);
 
-app.use(require('express-session')({
+app.use(session({
   secret: config.sessionSecret,
-  resave: false,
-  saveUninitialized: false
+  store: new RedisStore({
+    host: config.redis.host,
+    port: config.redis.port,
+    pass: config.redis.password,
+    client,
+    ttl: 600
+  }),
+  saveUninitialized: false,
+  resave: false
 }));
 
 app.use(passport.initialize());
 app.use(passport.session());
 
-const authRoutes = require('./routes/auth');
-const dashboardRoutes = require('./routes/dashboard');
-const organizationsRoutes = require('./routes/organizations');
+const viewRoutes = require('./routes/');
+const apiRoutes = require('./api/');
 
 const port = process.env.PORT || 3000;
 
@@ -32,9 +41,13 @@ app.use(bodyParser());
 app.set('view engine', 'ejs');
 app.use(expressLayouts);
 
-app.use('/', authRoutes);
-app.use('/dashboard', dashboardRoutes);
-app.use('/organizations', organizationsRoutes);
+// API Routes
+app.use('/api/organizations', apiRoutes.organizations);
+
+// View Routes
+app.use('/', viewRoutes.authRoutes);
+app.use('/dashboard', viewRoutes.dashboardRoutes);
+app.use('/organizations', viewRoutes.organizationsRoutes);
 
 app.use(express.static(`${__dirname}/public`));
 

@@ -2,23 +2,11 @@ const router = require('express').Router();
 const Models = require('../app/models');
 const helpers = require('../app/helpers');
 
-router.get('/', helpers.isAuthenticated, (req, res, next) => {
+router.get('/', (req, res, next) => {
   const { user } = req;
-  const { id } = user;
-  Models.Organization.findAll({
-    where: {
-      userId: id
-    },
-    attributes: ['name'],
-    raw: true
-  }).then(orgs => {
-    res.render('pages/organizations', {
-      pageTitle: "Organizations",
-      orgs,
-      user
-    });
-  }).catch(err => {
-    return err;
+  res.render('pages/organizations', {
+    pageTitle: "Your Organizations",
+    user
   });
 });
 
