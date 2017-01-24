@@ -9,17 +9,12 @@ const passport = require('passport');
 const session = require('express-session');
 const auth = require('./app/auth')();
 const config = require('./app/config');
-const redis = require('redis');
-const client = redis.createClient();
 const RedisStore = require('connect-redis')(session);
 
 app.use(session({
   secret: config.sessionSecret,
   store: new RedisStore({
-    host: config.redis.host,
-    port: config.redis.port,
-    pass: config.redis.password,
-    client,
+    url: config.redis.url,
     ttl: 600
   }),
   saveUninitialized: false,
