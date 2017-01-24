@@ -1,14 +1,13 @@
 // TODO: @swlkr this would probably be more awesome with Object.assign();
 
-const redisURI = require('url').parse(process.env.REDIS_URL);
-const redisPassword = redisURI.auth.split(':')[1];
-
 if (process.env.NODE_ENV === 'production') {
   module.exports = {
     "dbConnectionString": process.env.DATABASE_URL,
     "sessionSecret": process.env.SESSION_SECRET
   }
 } else if (process.env.NODE_ENV === 'staging') {
+  const redisURI = require('url').parse(process.env.REDIS_URL);
+  const redisPassword = redisURI.auth.split(':')[1];
   module.exports = {
     "dbConnectionString": process.env.DATABASE_URL,
     "sessionSecret": process.env.SESSION_SECRET,
