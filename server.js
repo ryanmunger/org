@@ -1,4 +1,5 @@
 // TODO: @munger hook up flash messages for better ui error handling/notifications
+require('newrelic');
 const express = require('express');
 const expressLayouts = require('express-ejs-layouts');
 const app = express();
