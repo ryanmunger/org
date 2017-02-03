@@ -1,0 +1,11 @@
+language: node_js
+node_js:
+- '6'
+deploy:
+  provider: heroku
+  api_key:
+    secure: b1Wk1/tBgJlrGFKotaEw5/CvPVJm9MuRI/AeGOjMEFD56VZu6ySaTSOtCapPhMFCRFnZWRKO22mVxxJKYa3QvJ/1Zecxj3u+ZRCw/+fukLF0Evhp/Rnpp4ViNb+7aesYCS+7veTfT+zZy6q7HSwVImiVWHW919i8hLDV5nWBjcFN6iGhP2+GVRYw11m1MH6rHTqi8nxRvT3tWNtPmbzAbVQVJOE/OX5FAjlCp159up7ByQv/lS+U1I38OKyRiofxrYikAi0fcR5EG70DRwywxG7MN5XXizh/P/TIpID6RHYu67iDbpcdjSSYXE+o7+sfVpon7VT3BZ68AjJXUij6A/vOhJjUFLGxfe2fXcYW6xof87ypOqvl7MaiV7G9fMJuCmRxABJ+rbHZAghoeug/IQlkTEiHc4QW+Qz7m527xp8woImXEUVqZssuxDvlOSItQyre5fFWaZ9F/LKDQkiaKIekjQuHhjg7BX9FHQ23m/bOgcBtU/5q8p03YkeoY4Y+XD2JBwN69JLcP0hna/0izDsSmJEAyBas4/yCwOGtkcGGNhEbe5SO3EwbvQGyb+8R14S592Uv427PmU7Ndi3KipP8i9pIJyDYwN4vftAh+w7Z7dW3hUzIMzy8X7Ku78yO3/eVIDPJwV/dExxVcD+bVFsKynBi0Z2FVpDHF0YtiOM=
+  app: org-staging
+  on:
+    repo: ryanmunger/org
+    branch: dev
